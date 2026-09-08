@@ -16,13 +16,11 @@ jobs:
       - name: Simulate build
         run: echo "Building app..."
 
-      - name: Simple secret check (demo)
-        run: |
-          echo "Running simple secret scan..."
-          # Fail if we see an obvious fake secret pattern
-          if grep -R "AWS_SECRET_ACCESS_KEY=" .; then
-            echo "❌ Found hardcoded secret!"
-            exit 1
-          fi
-          echo "✅ No obvious secrets found."
-
+      - name: Run Trivy filesystem scan (demo)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
