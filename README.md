@@ -145,10 +145,23 @@ Git executes it automatically before every commit.  Here we can detect secrets a
 
 ## Step 3: Use Repository and History Scanning
 
-## Step 4: Use a custom rules file - custom-rules.toml
+Create a custom rules file - `custom-rules.toml`
+
+```
+[[rules]]
+id = "generic-password"
+description = "Detect any PASSWORD assignment"
+regex = '''(?i)password\s*=\s*["'][^"']+["']'''
+tags = ["password", "custom"]
+```
+
+Run the gitleaks command
+
+`gitleaks detect --config custom-rules.toml`
 
 
-## Step 5: Branch Protection Rules 
+
+## Step 4: Branch Protection Rules 
 Enforce:
 
 - No direct pushes to main
@@ -156,25 +169,25 @@ Enforce:
 - Required status checks
 - No force pushes
 
-## Step 6: Use RBAC — Least Privilege **
+## Step 5: Use RBAC — Least Privilege **
 - Role	Permissions
 - Admin	Repo settings
 - Maintainer	Merge PRs
 - Developer	PR only
 - Auditor	Read-only
 
-## Step 7: Use Mandatory Reviews
+## Step 6: Use Mandatory Reviews
 Best practices:
 
 - Minimum 1–2 reviewers
 - Code owners for sensitive paths
 - Security review for auth, infra, CI
 
-## Step 8: Use CODEOWNERS
+## Step 7: Use CODEOWNERS
 - /.github/ @security-team
 - /terraform/ @cloud-team
 
-## Step 9: Use Dependabot
+## Step 8: Use Dependabot
 version: 2
 updates:
   - package-ecosystem: "npm"
@@ -184,7 +197,7 @@ updates:
 
 ## Exercise Checklist
 
-Container Exercise
+### Container Exercise
 1. Docker is installed and running.
 
 2. The repository has been cloned.
@@ -197,7 +210,7 @@ Container Exercise
 
 6. Running and stopped containers were inspected.
 
-Git Security Exercise
+### Git Security Exercise
 1. A .gitignore file was configured.
 
 2. Environment files and private keys were excluded.
