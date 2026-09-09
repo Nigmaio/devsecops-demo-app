@@ -1,4 +1,4 @@
-# — Day 4 - Container Exercise #1 
+# Day 4 - Container Exercise #1 
 
 ## Goal
 Build and run a simple containerised application to practice core Docker workflows: build, run, and inspect.
@@ -39,7 +39,7 @@ https://docs.docker.com/get-started/tutorials/run-an-app/
 
 
 
-# — Day 4 - Devsecops for Git -  Exercise #2 
+# Day 4 - Devsecops for Git -  Exercise #2 
 .gitignore — First Line of Defense
 
 Purpose
@@ -57,13 +57,13 @@ node_modules/
 dist/
 
 Demo
-'echo "AWS_SECRET_ACCESS_KEY=123" > .env'
-'git status'
+`echo "AWS_SECRET_ACCESS_KEY=123" > .env`
+`git status`
 
 Add .gitignore:
 
-'echo ".env" >> .gitignore'
-'git status'
+`echo ".env" >> .gitignore`
+`git status`
 ✅ File is no longer tracked.
 
 ⚠️ .gitignore does NOT protect secrets already committed.
