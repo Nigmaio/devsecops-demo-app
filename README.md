@@ -1,4 +1,4 @@
-# Container Exercise — Day 4
+# — Day 4 - Container Exercise #1 
 
 ## Goal
 Build and run a simple containerised application to practice core Docker workflows: build, run, and inspect.
@@ -19,7 +19,7 @@ Build and run a simple containerised application to practice core Docker workflo
 3. Run the container:
    docker run hello-app
 
-   You should see: "Congratulations, you ran your first container"
+   You should see: "Congratulations!!! You ran your first container."
 
 4. Inspect the running container (bonus — try before it exits):
    docker ps
@@ -36,3 +36,35 @@ Build and run a simple containerised application to practice core Docker workflo
 
 ## Resources
 https://docs.docker.com/get-started/tutorials/run-an-app/
+
+
+
+# — Day 4 - Devsecops for Git -  Exercise #2 
+.gitignore — First Line of Defense
+
+Purpose
+Prevent sensitive files from ever being tracked by Git.
+
+Common Security Files to Ignore
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+terraform.tfstate
+.terraform/
+node_modules/
+dist/
+
+Demo
+'echo "AWS_SECRET_ACCESS_KEY=123" > .env'
+'git status'
+
+Add .gitignore:
+
+'echo ".env" >> .gitignore'
+'git status'
+✅ File is no longer tracked.
+
+⚠️ .gitignore does NOT protect secrets already committed.
+
