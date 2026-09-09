@@ -19,7 +19,7 @@ Build and run a simple containerised application to practice core Docker workflo
 3. Run the container:
    docker run hello-app
 
-   You should see: "Hello, Omantel DevSecops Foundations Class"
+   You should see: "Congratulations, you ran your first container"
 
 4. Inspect the running container (bonus — try before it exits):
    docker ps
