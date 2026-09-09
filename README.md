@@ -174,7 +174,7 @@ Best practices:
 - /.github/ @security-team
 - /terraform/ @cloud-team
 
-## Step 7: Use Dependabot
+## Step 9: Use Dependabot
 version: 2
 updates:
   - package-ecosystem: "npm"
@@ -182,7 +182,7 @@ updates:
     schedule:
       interval: "weekly"
 
-Exercise Checklist
+## Exercise Checklist
 
 Container Exercise
 1. Docker is installed and running.
