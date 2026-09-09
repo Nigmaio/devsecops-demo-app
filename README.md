@@ -10,8 +10,8 @@ Build and run a simple containerised application to practice core Docker workflo
 ## Steps
 
 1. Clone (or pull if already cloned):
-   git clone <repo-url>
-   cd <repo-folder>
+   git clone "Insert Repo Url"
+   cd "Into Repo Folder"
 
 2. Build the image:
    docker build -t hello-app .
@@ -19,7 +19,7 @@ Build and run a simple containerised application to practice core Docker workflo
 3. Run the container:
    docker run hello-app
 
-   You should see: "Hello from the container"
+   You should see: "Hello, Omantel DevSecops Foundations Class"
 
 4. Inspect the running container (bonus — try before it exits):
    docker ps
@@ -33,3 +33,6 @@ Build and run a simple containerised application to practice core Docker workflo
 ## Troubleshooting
 - "docker: command not found" → Docker isn't installed or isn't running
 - Build fails on COPY step → make sure you're running the build command from inside the cloned folder
+
+## Resources
+https://docs.docker.com/get-started/tutorials/run-an-app/
