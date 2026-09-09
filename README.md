@@ -101,7 +101,7 @@ https://docs.docker.com/get-started/tutorials/run-an-app/
 
 
 # Exercise 2: DevSecOps for Git
-Part 1: Use .gitignore
+## Step 1: Use .gitignore
 
 Goal
 Prevent sensitive and unnecessary files from being tracked by Git.
@@ -127,31 +127,15 @@ Never commit passwords, API keys, private keys, cloud credentials, or Terraform 
 Create a sample environment file:
 
 
-**Demo**
-echo "AWS_SECRET_ACCESS_KEY=123" > .env
-`echo "AWS_SECRET_ACCESS_KEY=123" > .env`
-`git status`
-
-Check the repository status:
-git status
-Git will normally show .env as an untracked file.
-
-
-dd .env to .gitignore
-Run:
-
-bash
-echo ".env" >> .gitignore
-
 **Add .gitignore: **
 
-`echo ".env" >> .gitignore`
+`.env`
 `git status`
 ✅ File is no longer tracked.
 
 ⚠️ .gitignore does NOT protect secrets already committed.
 
-2.  Native Git Pre-Commit Hooks (Custom Scripts)
+## Step 2: Use native pre-commit hooks
 What This Is
 A pre-commit hook is a script located at:
 
@@ -159,44 +143,38 @@ A pre-commit hook is a script located at:
 Git executes it automatically before every commit.  Here we can detect secrets and block it before it's committed.
 
 
-** Gitleaks — Repository & History Scanning. **
-1. Create a custom rules file - custom-rules.toml
-[[rules]]
-id = "generic-password"
-description = "Detect any PASSWORD assignment"
-regex = '''(?i)password\s*=\s*["'][^"']+["']'''
-tags = ["password", "custom"]
-Run the gitleaks command
-gitleaks detect --config custom-rules.toml
+## Step 3: Use Repository and History Scanning
+
+## Step 4: Use a custom rules file - custom-rules.toml
 
 
-**  Branch Protection Rules **
+## Step 5: Branch Protection Rules 
 Enforce:
 
-No direct pushes to main
-Required pull requests
-Required status checks
-No force pushes
+- No direct pushes to main
+- Required pull requests
+- Required status checks
+- No force pushes
 
-** RBAC — Least Privilege **
-Role	Permissions
-Admin	Repo settings
-Maintainer	Merge PRs
-Developer	PR only
-Auditor	Read-only
+## Step 6: Use RBAC — Least Privilege **
+- Role	Permissions
+- Admin	Repo settings
+- Maintainer	Merge PRs
+- Developer	PR only
+- Auditor	Read-only
 
-Mandatory Reviews
+## Step 7: Use Mandatory Reviews
 Best practices:
 
-Minimum 1–2 reviewers
-Code owners for sensitive paths
-Security review for auth, infra, CI
+- Minimum 1–2 reviewers
+- Code owners for sensitive paths
+- Security review for auth, infra, CI
 
-CODEOWNERS
-/.github/ @security-team
-/terraform/ @cloud-team
+## Step 8: Use CODEOWNERS
+- /.github/ @security-team
+- /terraform/ @cloud-team
 
-Dependabot
+## Step 7: Use Dependabot
 version: 2
 updates:
   - package-ecosystem: "npm"
